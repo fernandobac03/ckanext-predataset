@@ -501,7 +501,7 @@ class PackageController(base.BaseController):
             abort(403, _('Unauthorized to create a package'))
 
         if context['save'] and not data:
-            return pkgcontroller._save_new(context, package_type=package_type)
+            return self._save_new(context, package_type=package_type)
 
         data = data or clean_dict(dict_fns.unflatten(tuplize_dict(parse_params(
             request.params, ignore_keys=CACHE_PARAMETERS))))
@@ -874,7 +874,7 @@ class PackageController(base.BaseController):
                 context['allow_partial_update'] = True
                 # sort the tags
                 if 'tag_string' in data_dict:
-                    data_dict['tags'] = pkgcontroller._tag_string_to_list(
+                    data_dict['tags'] = self._tag_string_to_list(
                         data_dict['tag_string'])
                 if data_dict.get('pkg_name'):
                     is_an_update = True
