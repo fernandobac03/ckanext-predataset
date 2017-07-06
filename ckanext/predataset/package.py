@@ -487,7 +487,7 @@ class PackageController(base.BaseController):
         if data and 'type' in data:
             package_type = data['type']
         else:
-            package_type = pkgcontroller._guess_package_type(True)
+            package_type = self._guess_package_type(True)
 
         context = {'model': model, 'session': model.Session,
                    'user': c.user, 'auth_user_obj': c.userobj,
