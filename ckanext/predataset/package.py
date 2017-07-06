@@ -524,7 +524,7 @@ class PackageController(base.BaseController):
         data['group_id'] = request.params.get('group') or \
             request.params.get('groups__0__id')
 
-        form_snippet = pkgcontroller._package_form(package_type=package_type)
+        form_snippet = self._package_form(package_type=package_type)
         form_vars = {'data': data, 'errors': errors,
                      'error_summary': error_summary,
                      'action': 'new', 'stage': stage,
@@ -532,10 +532,10 @@ class PackageController(base.BaseController):
                      }
         c.errors_json = h.json.dumps(errors)
 
-        pkgcontroller._setup_template_variables(context, {},
+        self._setup_template_variables(context, {},
                                        package_type=package_type)
 
-        new_template = pkgcontroller._new_template(package_type)
+        new_template = self._new_template(package_type)
         return render(new_template,
                       extra_vars={'form_vars': form_vars,
                                   'form_snippet': form_snippet,
