@@ -873,11 +873,11 @@ class PackageController(base.BaseController):
 
 	##CALCULANDO LA CALIDAD DE LOS DATOS
 	    total = 0
-	    metadatosingresados=0
-	    for (metadata in datadict )
+	    metadatosingresados = 0
+	    for (metadata, value) in datadict:
 	    {
 		total = total + 1		 	
-		if (metadata)
+		if (value)
 		{
 			metadatosingresados=metadatosingresadis+1
 		}		
