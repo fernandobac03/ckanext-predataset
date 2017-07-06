@@ -869,6 +869,22 @@ class PackageController(base.BaseController):
         try:
             data_dict = clean_dict(dict_fns.unflatten(
                 tuplize_dict(parse_params(request.POST))))
+
+
+		##CALCULANDO LA CALIDAD DE LOS DATOS
+		total = 0
+		metadatosingresados=0
+		for (metadata in datadict )
+		{
+			total = total + 1		 	
+			if (metadata)
+			{
+				metadatosingresados=metadatosingresadis+1
+			}		
+		}
+		data_dict['quality'] = (metadatosingresados/total)*100	
+
+
             if ckan_phase:
                 # prevent clearing of groups etc
                 context['allow_partial_update'] = True
