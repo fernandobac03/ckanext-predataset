@@ -298,6 +298,7 @@ class DDController(BaseController):
               	data['name']=""
 		data['title']=""
 		data['url']=""
+	        data['quality']=[]
 		return pkggg.new(data=data, errors=None, error_summary=None)
             
             elif save_action == 'go-dataset-skip':
